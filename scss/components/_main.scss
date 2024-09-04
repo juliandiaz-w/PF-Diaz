@@ -1,0 +1,50 @@
+/* -------------------------MAIN-------------------------*/
+
+header {
+    position: sticky;
+    top: 0;
+    background: $main-color;
+    width: 100%;
+    min-width: 320px;
+    z-index: 1020;
+    nav {
+        position: relative;
+        z-index: 1000;
+        div {
+            ul {
+                    list-style: none;
+                    li {
+                        display: inline-block;
+                        margin: 20px;
+                        .nav-link {
+                            color: #E0E0E0;
+                            transition: color 0.1s, text-shadow 0.1s;
+                            &:hover {
+                                color: #FF00D1;
+                                text-shadow: 0 0 3px rgba(255, 0, 209, 0.8);
+                            }
+                        }
+                    }
+                }
+            a {
+                display: block;
+                padding: 20px;
+                color: #ffffff;
+            }
+            form {
+                .boton-busqueda {
+                    background-color: white;
+                    border: 1px solid white;
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1050;
+}

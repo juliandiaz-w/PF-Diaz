@@ -1,0 +1,108 @@
+/* -------------------------VARIABLES-------------------------*/
+$main-color: rgb(18,18,18);
+$secondary-color: #FF00D1;
+
+/* --------------------------LISTAS---------------------------*/
+
+$colors: (rgb(18,18,18), #121212, #FF00D1, #E600B8, #76B900, #ef0707, #E0E0E0, #4675B9);
+$font-size: 20px, 25px, 30px, 42px;
+$font-weight: (400, 500, 600, 700);
+
+/* ------------------------OPERACIONES------------------------*/
+
+$width: 300px;
+$height: 460px;
+$ancho-custom: 18rem;
+
+/* ---------------------------MAPAS---------------------------*/
+
+$cards-products: (
+    display: inline-block,
+    ancho: nth($width , 1 ),
+    alto: nth($height , 1 ),
+    border: 1px solid rgb(107, 107, 107),
+    margin: 20px,
+    texto: center,
+    borde: 15px,
+    texto-tamaño: 16px,
+    margen-top: 10px,
+    margen: 10px 20px,
+);
+
+$cards-products-full: (
+    centrar: center,
+    mostrar: flex,
+    alinear: wrap,
+    ancho: 100%,
+    borde-caja: border-box,
+);
+
+$cards-products-img: (
+    ancho: 100%,
+    radio: 15px 15px 0px 0px,
+);
+
+$enlaces: (
+    text-decoration: none,
+);
+
+.tarjeta-productos {
+    display: map-get($cards-products-full, mostrar);
+    flex-wrap: map-get($cards-products-full, alinear);
+    justify-content: map-get($cards-products-full, centrar);
+    width: map-get($cards-products-full, ancho);
+    box-sizing: map-get($cards-products-full, borde-caja);
+    div {
+        display: map-get($cards-products, display);
+        width: map-get($cards-products, ancho);
+        height: map-get($cards-products, alto);
+        border: map-get($cards-products, border);
+        margin: map-get($cards-products, margin);
+        text-align: map-get($cards-products, texto);
+        border-radius: map-get($cards-products, borde);
+    }
+
+    img {
+        width: map-get($cards-products-img, ancho);
+        border-radius: map-get($cards-products-img, radio);
+    }
+
+    h2 {
+        font-size: map-get($cards-products, texto-tamaño);
+        margin-top: map-get($cards-products, margen-top);
+    }
+
+    a {
+        text-decoration: map-get($enlaces, text-decoration);
+        color: nth($colors, 7);
+        background-color: nth($secondary-color , 1 );
+        display: map-get($cards-products, display);
+        padding: map-get($cards-products, margen);
+        border-radius: map-get($cards-products, borde);
+    }
+
+    p {
+        margin: map-get($cards-products, margin);
+    }
+
+    #product-price {
+        color: nth($colors, 8);
+        font-weight: nth($font-weight, 4);
+    }
+}
+
+.card-custom {
+    width: nth($ancho-custom, 1); // Asegúrate de definir $ancho-custom
+}
+
+.links-header{
+    
+}
+
+/* ---------------------------MIXIN---------------------------*/
+
+@mixin flex($flex, $justify, $align){
+    display: $flex;
+    justify-content: $justify;
+    align-items: $align;
+}

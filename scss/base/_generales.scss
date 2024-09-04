@@ -1,0 +1,63 @@
+/* -------------------------------TIPOGRAFÍA--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+/* ---------------------------------ROOT-----------------------------------*/
+
+:root{
+    --bs-navbar-active-color: #E0E0E0;
+    --bs-navbar-hover-color: #FF00D1;
+}
+
+/* ----------------------------------RESET----------------------------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------BOOTSTRAP--------------------------------*/
+
+
+/* Bootstrap CSS */
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #121212;
+    transition: 0.1s;
+    font-weight: bold;
+}
+
+.navbar-nav .navlink.active,
+.navbar-nav .nav-link.show{
+    color: #E0E0E0;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon{
+    color: white;
+}
+
+/* Bootstrap HOVER */
+.dropdown-menu .dropdown-item:hover {
+    color: #121212;
+    transition: 0.1s;
+    font-weight: bold;
+}
+
+.dropdown-menu li:first-child .dropdown-item:hover {
+    color: #76B900;
+}
+
+.dropdown-menu li:nth-child(2) .dropdown-item:hover {
+    color: #ef0707;
+}
