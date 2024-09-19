@@ -41,6 +41,21 @@
   width: 18rem; }
 
 /* ---------------------------MIXIN---------------------------*/
+/* ----------------------------KEY----------------------------*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(3px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px); }
+  100% {
+    transform: translateX(-350px); } }
+
 /* -------------------------------TIPOGRAFÍA--------------------------------*/
 body {
   font-family: "Montserrat", sans-serif; }
@@ -91,6 +106,7 @@ body {
 
 /* -------------------------DESTACADOS-------------------------*/
 section .titulo-destacados {
+  text-shadow: 0px 0px 8px #FF00D1;
   color: #121212;
   font-size: 30px;
   text-align: center;
@@ -169,17 +185,196 @@ section .btn-primary {
   background-color: #1212120a; }
 
 .btn-contact {
+  position: relative;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
-  background-color: #FF00D1;
+  background-color: #121212;
   color: white;
-  margin: 10px; }
+  margin: 10px;
+  z-index: 1;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out; }
+  .btn-contact::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: #FF00D1;
+    transform-origin: center;
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+    transition: transform 0.35s ease-in-out; }
+  .btn-contact:hover::before {
+    transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15); }
+  .btn-contact:hover {
+    color: #161616; }
 
-.btn-contact:hover {
-  color: black;
-  background-color: #d800b0fb;
-  transition: 0.5s; }
+.text-form {
+  text-align: center;
+  font-size: 42px;
+  color: #121212;
+  padding: 10px;
+  margin-bottom: 0px; }
+
+.text-form {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #FF00D1;
+  overflow: hidden;
+  cursor: pointer; }
+  .text-form::after {
+    content: '';
+    z-index: -1;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    width: 1.25em;
+    transform: translate3d(-925%, 0, 0) rotate(35deg);
+    transition: transform 0.45s ease-in-out; }
+  .text-form:hover::after {
+    transform: translate3d(200%, 0, 0) rotate(35deg); }
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #121212;
+  border-radius: 1px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+  .formulario form {
+    width: 100%;
+    max-width: 600px; }
+    .formulario form .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column; }
+    .formulario form input,
+    .formulario form select,
+    .formulario form textarea {
+      background-color: #121212;
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 10px 15px;
+      color: #FF00D1;
+      font-size: 20px;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); }
+      .formulario form input:focus,
+      .formulario form select:focus,
+      .formulario form textarea:focus {
+        outline: none;
+        background-color: #121212;
+        box-shadow: 0 0 10px #FF00D1; }
+    .formulario form input[type="submit"] {
+      background-color: #FF00D1;
+      color: #121212;
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 12px;
+      transition: background-color 0.3s ease; }
+      .formulario form input[type="submit"]:hover {
+        background-color: #FF00D1, 1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+    .formulario form .volver-inicio a {
+      text-decoration: none;
+      color: #FF00D1;
+      transition: color 0.3s ease; }
+      .formulario form .volver-inicio a:hover {
+        color: #FF00D1; }
+  .formulario label {
+    color: #FF00D1;
+    text-align: center; }
+  .formulario .map-location {
+    margin-top: 2rem; }
+    .formulario .map-location iframe {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
+/* --------------------------NOSOTROS--------------------------*/
+.nosotros {
+  background-color: #121212;
+  overflow: hidden; }
+  .nosotros h1 {
+    text-shadow: 0px 0px 4px #FF00D1;
+    color: #FF00D1;
+    font-size: 100px;
+    text-align: center;
+    margin-top: 20px; }
+  .nosotros .container-nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto; }
+    .nosotros .container-nosotros .hero-content {
+      flex: 1;
+      margin: 0px 25px; }
+      .nosotros .container-nosotros .hero-content h2 {
+        font-weight: 400;
+        text-shadow: 0px 0px 8px #FF00D1;
+        color: #FF00D1;
+        font-size: 1.7rem;
+        text-align: center;
+        margin-bottom: 50px; }
+      .nosotros .container-nosotros .hero-content p {
+        font-weight: 100;
+        font-size: 24px;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 40px;
+        color: #666; }
+        .nosotros .container-nosotros .hero-content p .lupe-span {
+          font-weight: 600;
+          text-shadow: 0px 0px 8px #FF00D1;
+          color: #FF00D1;
+          font-size: 28px;
+          text-align: center;
+          margin-top: 20px; }
+          .nosotros .container-nosotros .hero-content p .lupe-span:hover {
+            text-decoration: underline;
+            cursor: pointer; }
+        .nosotros .container-nosotros .hero-content p .coderhouse a {
+          text-decoration: none;
+          font-weight: 700;
+          color: #f7df1e; }
+    .nosotros .container-nosotros .hero-image {
+      flex: 1;
+      margin: auto; }
+      .nosotros .container-nosotros .hero-image .img-lupe-1, .nosotros .container-nosotros .hero-image .img-lupe-2 {
+        width: 100%;
+        mask-image: linear-gradient(black 80%, transparent), linear-gradient(to right, black 50%, transparent), linear-gradient(to left, black 50%, transparent), linear-gradient(to top, black 50%, transparent);
+        mask-composite: intersect;
+        -webkit-mask-image: linear-gradient(black 80%, transparent), linear-gradient(to right, black 50%, transparent), linear-gradient(to left, black 50%, transparent), linear-gradient(to top, black 50%, transparent);
+        -webkit-mask-composite: intersect; }
+  .nosotros .img-lupe-3 {
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+    mask-image: linear-gradient(black 80%, transparent), linear-gradient(to right, black 50%, transparent), linear-gradient(to left, black 50%, transparent), linear-gradient(to top, black 50%, transparent);
+    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(black 80%, transparent), linear-gradient(to right, black 50%, transparent), linear-gradient(to left, black 50%, transparent), linear-gradient(to top, black 50%, transparent);
+    -webkit-mask-composite: intersect; }
+
+.mantenimiento {
+  height: 100%;
+  width: 100%; }
 
 /* -------------------------------MEDIA QUERIES------------------------------*/
 @media (max-width: 768px) {
@@ -202,9 +397,64 @@ section .btn-primary {
     padding: 8px 16px;
     font-size: 0.9rem; } }
 
+@media (max-width: 768px) {
+  .formulario {
+    padding: 1rem; }
+    .formulario form {
+      max-width: 100%; }
+      .formulario form .form-group {
+        margin-bottom: 1rem; }
+      .formulario form input, .formulario form select, .formulario form textarea {
+        font-size: 0.9rem;
+        padding: 8px 10px; }
+      .formulario form input[type="submit"] {
+        font-size: 1rem;
+        padding: 10px; }
+    .formulario .map-location iframe {
+      width: 100%;
+      height: 300px; } }
+
+@media (max-width: 480px) {
+  .formulario form .form-group {
+    margin-bottom: 0.8rem; }
+  .formulario form input, .formulario form select, .formulario form textarea {
+    font-size: 0.8rem;
+    padding: 6px 8px; }
+  .formulario form input[type="submit"] {
+    font-size: 0.9rem;
+    padding: 8px; }
+  .formulario .map-location iframe {
+    height: 250px; } }
+
+@media (max-width: 768px) {
+  .nosotros h1 {
+    font-size: 60px; }
+  .container-nosotros {
+    flex-direction: column; }
+  .hero-content h2 {
+    font-size: 1.4rem; }
+  .hero-content p {
+    font-size: 20px; } }
+
+@media (max-width: 480px) {
+  .nosotros h1 {
+    font-size: 40px; }
+  .hero-content h2 {
+    font-size: 1.2rem; }
+  .hero-content p {
+    font-size: 16px; } }
+
+@media (max-width: 500px) {
+  .hero-image .img-lupe-3 {
+    height: 100%;
+    width: 100%; } }
+
+@media (max-width: 500px) {
+  .mantenimiento {
+    width: 100%; } }
+
 /* -------------------------MAIN-------------------------*/
 header {
-  position: sticky;
   top: 0;
   background: #121212;
   width: 100%;
@@ -219,10 +469,27 @@ header {
         display: inline-block;
         margin: 20px; }
         header nav div ul li .nav-link {
+          position: relative;
+          z-index: 1;
           color: #E0E0E0;
           transition: color 0.1s, text-shadow 0.1s; }
+          header nav div ul li .nav-link::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: -0.25em;
+            right: -0.25em;
+            background-color: #E600B8;
+            transform-origin: bottom center;
+            transform: scaleY(0.1);
+            transition: all 0.1s ease-in-out; }
+          header nav div ul li .nav-link:hover::before {
+            transform: scaleY(1);
+            background-color: #FF00D1; }
           header nav div ul li .nav-link:hover {
-            color: #FF00D1;
+            color: #121212;
             text-shadow: 0 0 3px rgba(255, 0, 209, 0.8); }
     header nav div a {
       display: block;
@@ -238,7 +505,239 @@ header {
   position: absolute;
   z-index: 1050; }
 
+/* --------------------------FORMAS PAGO--------------------------*/
+.metodos-envios-pagos .flip-card {
+  width: 100%;
+  max-width: 300px; }
+
+.metodos-envios-pagos .btn-formas-de-pago, .metodos-envios-pagos .btn-formas-de-envio {
+  --color: black;
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative; }
+  .metodos-envios-pagos .btn-formas-de-pago::before, .metodos-envios-pagos .btn-formas-de-envio::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%; }
+  .metodos-envios-pagos .btn-formas-de-pago:hover, .metodos-envios-pagos .btn-formas-de-envio:hover {
+    color: #FF00D1; }
+  .metodos-envios-pagos .btn-formas-de-pago:before, .metodos-envios-pagos .btn-formas-de-envio:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all; }
+  .metodos-envios-pagos .btn-formas-de-pago:hover::before, .metodos-envios-pagos .btn-formas-de-envio:hover::before {
+    top: -30px;
+    left: -30px; }
+
+.metodos-envios-pagos .loader {
+  width: 100%;
+  max-width: 300px; }
+
+.metodos-envios-pagos .btn-formas-de-pago,
+.metodos-envios-pagos .btn-formas-de-envio {
+  margin-top: 20px;
+  width: auto; }
+
+.metodos-envios-pagos .row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .metodos-envios-pagos .row .flip-card {
+    background-color: transparent;
+    width: 240px;
+    height: 170px;
+    perspective: 1000px;
+    color: white; }
+    .metodos-envios-pagos .row .flip-card .flip-card-inner {
+      position: relative;
+      width: 240px;
+      height: 154px;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d; }
+      .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+        background-color: #171717; }
+      .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front,
+      .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back {
+        box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 1rem; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .heading_8264,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .heading_8264 {
+          position: absolute;
+          letter-spacing: .2em;
+          font-size: 0.5em;
+          top: 2em;
+          left: 18.6em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .logo,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .logo {
+          position: absolute;
+          top: 6.8em;
+          left: 11.7em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .chip,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .chip {
+          position: absolute;
+          top: 2.3em;
+          left: 1.5em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .contactless,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .contactless {
+          position: absolute;
+          top: 3.5em;
+          left: 12.4em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .number,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .number {
+          position: absolute;
+          font-weight: bold;
+          font-size: .6em;
+          top: 8.3em;
+          left: 1.6em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .valid_thru,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .valid_thru {
+          position: absolute;
+          font-weight: bold;
+          top: 635.8em;
+          font-size: .01em;
+          left: 140.3em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .date_8264,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .date_8264 {
+          position: absolute;
+          font-weight: bold;
+          font-size: 0.5em;
+          top: 13.6em;
+          left: 3.2em; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-front .name,
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .name {
+          position: absolute;
+          font-weight: bold;
+          font-size: 0.5em;
+          top: 16.1em;
+          left: 2em; }
+      .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+        background-color: #171717;
+        transform: rotateY(180deg); }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .strip {
+          position: absolute;
+          background-color: black;
+          width: 15em;
+          height: 1.5em;
+          top: 2.4em;
+          background: repeating-linear-gradient(45deg, #303030, #303030 10px, #202020 10px, #202020 20px); }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .mstrip {
+          position: absolute;
+          background-color: white;
+          width: 8em;
+          height: 0.8em;
+          top: 5em;
+          left: .8em;
+          border-radius: 2.5px; }
+        .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .sstrip {
+          position: absolute;
+          background-color: white;
+          width: 4.1em;
+          height: 0.8em;
+          top: 5em;
+          left: 10em;
+          border-radius: 2.5px; }
+          .metodos-envios-pagos .row .flip-card .flip-card-inner .flip-card-back .sstrip .code {
+            font-weight: bold;
+            text-align: center;
+            margin: .01em;
+            color: black; }
+    .metodos-envios-pagos .row .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg); }
+
+.metodos-envios-pagos .loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .metodos-envios-pagos .loader .truckWrapper {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: hidden; }
+    .metodos-envios-pagos .loader .truckWrapper .truckBody {
+      width: 130px;
+      height: fit-content;
+      margin-bottom: 6px;
+      animation: motion 1s linear infinite; }
+    .metodos-envios-pagos .loader .truckWrapper .truckTires svg {
+      width: 24px; }
+  .metodos-envios-pagos .loader .truckTires {
+    width: 130px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 15px;
+    position: absolute;
+    bottom: 0; }
+  .metodos-envios-pagos .loader .road {
+    width: 100%;
+    height: 1.5px;
+    background-color: #282828;
+    position: relative;
+    bottom: 0;
+    align-self: flex-end;
+    border-radius: 3px; }
+    .metodos-envios-pagos .loader .road::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 100%;
+      background-color: #282828;
+      right: -50%;
+      border-radius: 3px;
+      animation: roadAnimation 1.4s linear infinite;
+      border-left: 10px solid white; }
+    .metodos-envios-pagos .loader .road::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 100%;
+      background-color: #282828;
+      right: -65%;
+      border-radius: 3px;
+      animation: roadAnimation 1.4s linear infinite;
+      border-left: 4px solid white; }
+  .metodos-envios-pagos .loader .lampPost {
+    position: absolute;
+    bottom: 0;
+    right: -90%;
+    height: 90px;
+    animation: roadAnimation 1.4s linear infinite; }
+
 footer {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #ff00d1 100%);
   color: #E0E0E0;
   background-color: #121212; }
 
@@ -265,5 +764,23 @@ footer {
   .imagenes-logos img:hover {
     filter: invert(56%) sepia(92%) saturate(5646%) hue-rotate(288deg) brightness(103%) contrast(104%); }
 
-.links-medios-pago {
-  list-style: none; }
+.medio-de-pago, .btn-arrepentimiento {
+  margin: 10px;
+  list-style: none;
+  position: relative; }
+  .medio-de-pago::before, .medio-de-pago::after, .btn-arrepentimiento::before, .btn-arrepentimiento::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: #121212;
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease; }
+  .medio-de-pago::before, .btn-arrepentimiento::before {
+    top: 0; }
+  .medio-de-pago::after, .btn-arrepentimiento::after {
+    bottom: 0; }
+  .medio-de-pago:hover::before, .medio-de-pago:hover::after, .btn-arrepentimiento:hover::before, .btn-arrepentimiento:hover::after {
+    transform: translateX(-50%) scaleX(1); }

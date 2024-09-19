@@ -1,7 +1,6 @@
 /* -------------------------MAIN-------------------------*/
 
 header {
-    position: sticky;
     top: 0;
     background: $main-color;
     width: 100%;
@@ -12,20 +11,39 @@ header {
         z-index: 1000;
         div {
             ul {
-                    list-style: none;
-                    li {
-                        display: inline-block;
-                        margin: 20px;
-                        .nav-link {
-                            color: #E0E0E0;
-                            transition: color 0.1s, text-shadow 0.1s;
-                            &:hover {
-                                color: #FF00D1;
-                                text-shadow: 0 0 3px rgba(255, 0, 209, 0.8);
-                            }
+                list-style: none;
+                li {
+                    display: inline-block;
+                    margin: 20px;
+                    .nav-link {
+                        position: relative;
+                        z-index: 1;
+                        color: #E0E0E0;
+                        transition: color 0.1s, text-shadow 0.1s;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            bottom: 0;
+                            left: -0.25em;
+                            right: -0.25em;
+                            background-color: nth($colors , 4);
+                            transform-origin: bottom center;
+                            transform: scaleY(0.1);
+                            transition: all 0.1s ease-in-out;
+                        }
+                        &:hover::before {
+                            transform: scaleY(1);
+                            background-color: nth($colors , 3);
+                        }
+                        &:hover {
+                            color: nth($colors , 2);
+                            text-shadow: 0 0 3px rgba(255, 0, 209, 0.8);
                         }
                     }
                 }
+            }
             a {
                 display: block;
                 padding: 20px;
@@ -48,3 +66,283 @@ header {
     position: absolute;
     z-index: 1050;
 }
+
+/* --------------------------FORMAS PAGO--------------------------*/
+
+.metodos-envios-pagos {
+    .flip-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    .btn-formas-de-pago, .btn-formas-de-envio{
+        --color: black;
+        font-family: inherit;
+        display: inline-block;
+        width: 6em;
+        height: 2.6em;
+        line-height: 2.5em;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 20px;
+        font-size: 17px;
+        z-index: 1;
+        color: var(--color);
+        border: 2px solid var(--color);
+        border-radius: 6px;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: "";
+            background: var(--color);
+            width: 150px;
+            height: 200px;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        &:hover {
+            color: nth($colors , 3);
+        }
+        &:before {
+            top: 100%;
+            left: 100%;
+            transition: 0.3s all;
+        }
+        &:hover::before {
+            top: -30px;
+            left: -30px;
+        }
+    }
+    .loader {
+        width: 100%;
+        max-width: 300px;
+    }
+    .btn-formas-de-pago,
+    .btn-formas-de-envio {
+        margin-top: 20px;
+        width: auto;
+    }
+    .row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .flip-card {
+            background-color: transparent;
+            width: 240px;
+            height: 170px;
+            perspective: 1000px;
+            color: white;
+            .flip-card-inner {
+                position: relative;
+                width: 240px;
+                height: 154px;
+                text-align: center;
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+                .flip-card-front {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+                    background-color: #171717;
+                }
+                .flip-card-front,
+                .flip-card-back {
+                box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                border-radius: 1rem;
+                .heading_8264 {
+                    position: absolute;
+                    letter-spacing: .2em;
+                    font-size: 0.5em;
+                    top: 2em;
+                    left: 18.6em;
+                }
+                .logo {
+                    position: absolute;
+                    top: 6.8em;
+                    left: 11.7em;
+                }
+                .chip {
+                    position: absolute;
+                    top: 2.3em;
+                    left: 1.5em;
+                }
+                .contactless {
+                    position: absolute;
+                    top: 3.5em;
+                    left: 12.4em;
+                }
+                .number {
+                    position: absolute;
+                    font-weight: bold;
+                    font-size: .6em;
+                    top: 8.3em;
+                    left: 1.6em;
+                }
+                .valid_thru {
+                    position: absolute;
+                    font-weight: bold;
+                    top: 635.8em;
+                    font-size: .01em;
+                    left: 140.3em;
+                }
+                .date_8264 {
+                    position: absolute;
+                    font-weight: bold;
+                    font-size: 0.5em;
+                    top: 13.6em;
+                    left: 3.2em;
+                }
+                .name {
+                    position: absolute;
+                    font-weight: bold;
+                    font-size: 0.5em;
+                    top: 16.1em;
+                    left: 2em;
+                }
+                }
+                .flip-card-back {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
+                    background-color: #171717;
+                    transform: rotateY(180deg);
+                    .strip {
+                        position: absolute;
+                        background-color: black;
+                        width: 15em;
+                        height: 1.5em;
+                        top: 2.4em;
+                        background: repeating-linear-gradient(45deg,
+                                #303030,
+                                #303030 10px,
+                                #202020 10px,
+                                #202020 20px);
+                    }
+                    .mstrip {
+                        position: absolute;
+                        background-color: rgb(255, 255, 255);
+                        width: 8em;
+                        height: 0.8em;
+                        top: 5em;
+                        left: .8em;
+                        border-radius: 2.5px;
+                    }
+                    .sstrip {
+                        position: absolute;
+                        background-color: rgb(255, 255, 255);
+                        width: 4.1em;
+                        height: 0.8em;
+                        top: 5em;
+                        left: 10em;
+                        border-radius: 2.5px;
+                        .code {
+                            font-weight: bold;
+                            text-align: center;
+                            margin: .01em;
+                            color: black;
+                        }
+                    }
+                    
+                }
+            }
+            &:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    .loader {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .truckWrapper {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            justify-content: flex-end;
+            overflow-x: hidden;
+            .truckBody {
+                width: 130px;
+                height: fit-content;
+                margin-bottom: 6px;
+                animation: motion 1s linear infinite;
+            }
+            .truckTires svg {
+                width: 24px;
+            }
+        }
+        .truckTires {
+            width: 130px;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 10px 0px 15px;
+            position: absolute;
+            bottom: 0;
+        }
+        .road {
+            width: 100%;
+            height: 1.5px;
+            background-color: #282828;
+            position: relative;
+            bottom: 0;
+            align-self: flex-end;
+            border-radius: 3px;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 100%;
+                background-color: #282828;
+                right: -50%;
+                border-radius: 3px;
+                animation: roadAnimation 1.4s linear infinite;
+                border-left: 10px solid white;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 100%;
+                background-color: #282828;
+                right: -65%;
+                border-radius: 3px;
+                animation: roadAnimation 1.4s linear infinite;
+                border-left: 4px solid white;
+            }
+        }
+        .lampPost {
+            position: absolute;
+            bottom: 0;
+            right: -90%;
+            height: 90px;
+            animation: roadAnimation 1.4s linear infinite;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
